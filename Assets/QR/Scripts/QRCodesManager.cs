@@ -48,7 +48,6 @@ namespace QRTracking
         private System.Collections.Generic.SortedDictionary<System.Guid, Microsoft.MixedReality.QR.QRCode> qrCodesList = new SortedDictionary<System.Guid, Microsoft.MixedReality.QR.QRCode>();
 
         private QRCodeWatcher qrTracker;
-        private bool capabilityInitialized = false;
         private QRCodeWatcherAccessStatus accessStatus;
         private System.Threading.Tasks.Task<QRCodeWatcherAccessStatus> capabilityTask;
 
@@ -85,7 +84,6 @@ namespace QRTracking
             IsSupported = QRCodeWatcher.IsSupported();
             capabilityTask = QRCodeWatcher.RequestAccessAsync();
             accessStatus = await capabilityTask;
-            capabilityInitialized = true;
         }
 
         public void SetupQRTracking()
@@ -241,7 +239,7 @@ namespace QRTracking
 
         //private void Update()
         //{
-        //    if (qrTracker == null && capabilityInitialized && IsSupported)
+        //    if (qrTracker == null && IsSupported)
         //    {
         //        if (accessStatus == QRCodeWatcherAccessStatus.Allowed)
         //        {

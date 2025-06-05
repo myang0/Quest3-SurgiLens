@@ -56,7 +56,7 @@ namespace openDicom.Encoding
             if (vm.Equals(1) || vm.IsUndefined)
             {
                 // 0xFFFFFFFF is reserved!
-                if (unlimitedText.Length <= 0xFFFFFFFE)
+                if (unlimitedText.Length < int.MaxValue)
                     unlimitedText = unlimitedText.TrimEnd(null);
                 else
                     throw new EncodingException(
