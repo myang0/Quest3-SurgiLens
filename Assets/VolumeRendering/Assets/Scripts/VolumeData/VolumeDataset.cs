@@ -593,7 +593,7 @@ namespace UnityVolumeRendering
 
             await FindAllSegments(progressHandler);       //Althought LabelNames should contain this info, it is not always the case (empty metadatas), so we still need to check it manually
 
-            await Task.Run(() =>OrderLabelDictionaríes());
+            await Task.Run(() =>OrderLabelDictionaries());
 
             try
             {
@@ -686,7 +686,7 @@ namespace UnityVolumeRendering
 
             return texture;
         }
-        private void OrderLabelDictionaríes()
+        private void OrderLabelDictionaries()
         {
             for(int i=0;i<HowManyLabelMapLayers;i++)
             {

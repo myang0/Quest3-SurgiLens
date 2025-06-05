@@ -72,7 +72,6 @@ namespace UnityVolumeRendering
             // Create dataset
             VolumeDataset volumeDataset = new VolumeDataset();
 
-
             await Task.Run(() =>
             {
                 ImageFileReader reader = new ImageFileReader();
