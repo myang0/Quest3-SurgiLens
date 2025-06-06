@@ -10,12 +10,10 @@ using System.Linq;
 using System.Globalization;
 using System.Xml;
 using Unity.Jobs;
-using Microsoft.MixedReality.Toolkit;
 using Unity.Collections;
 using Unity.Burst;
 using ReadOnlyAttribute = Unity.Collections.ReadOnlyAttribute;
 using System.ComponentModel;
-using Unity.XR.CoreUtils;
 
 namespace UnityVolumeRendering
 {

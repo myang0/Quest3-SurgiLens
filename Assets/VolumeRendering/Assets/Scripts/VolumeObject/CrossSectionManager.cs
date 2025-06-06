@@ -1,7 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Microsoft.MixedReality.Toolkit.Input;
-using JetBrains.Annotations;
 
 namespace UnityVolumeRendering
 {

@@ -149,11 +149,9 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: -370524025673527511, guid: 6c3d673cc4307c84ca4017f66197679d, type: 2}
-  - {fileID: 11400000, guid: b0de3012a2dea0943ab6184304fde3ad, type: 2}
-  - {fileID: 11400000, guid: c677e5c4eb85b7849a8da406775c299d, type: 2}
   - {fileID: 11400000, guid: 293eccf671cc252408cd27fe1b8785c8, type: 2}
   - {fileID: 1361015623666327774, guid: 9dd3e23a1f52f1c4e969949a0b18792e, type: 2}
+  - {fileID: 11400000, guid: b0de3012a2dea0943ab6184304fde3ad, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -174,6 +172,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.VolumeVisualisation
     Standalone: com.DefaultCompany.VolumeVisualisation
   buildNumber:
     Standalone: 0
@@ -744,6 +743,7 @@ PlayerSettings:
     1: UVR_USE_SIMPLEITK;USE_INPUT_SYSTEM_POSE_CONTROL;QC_DISABLE_BUILTIN_ALL
     14: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
     7: USE_INPUT_SYSTEM_POSE_CONTROL;USE_INPUT_SYSTEM_POSE_CONTROL
+    Android: UVR_USE_SIMPLEITK
     Standalone: UVR_USE_SIMPLEITK
   additionalCompilerArguments:
     1: []
