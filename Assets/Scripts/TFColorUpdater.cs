@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityVolumeRendering;
 
+using TransferFunction = UnityVolumeRendering.TransferFunction;
+
 public class TFColorUpdater : MonoBehaviour
 {
     [SerializeField] List<SliderData> _sliders;

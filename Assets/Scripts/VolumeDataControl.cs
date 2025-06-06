@@ -10,6 +10,8 @@ using UnityEngine;
 using UnityVolumeRendering;
 using RenderMode = UnityVolumeRendering.RenderMode;
 
+using TransferFunction = UnityVolumeRendering.TransferFunction;
+
 public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
 {
     [SerializeField] InteractableToggleCollection _renderModes;

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityVolumeRendering;
+
+using TransferFunction = UnityVolumeRendering.TransferFunction;
 
 public class Converters
 {
