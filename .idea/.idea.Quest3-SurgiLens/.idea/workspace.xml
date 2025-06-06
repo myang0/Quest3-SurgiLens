@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2c1c7e0-9bb8-4aba-9237-f099cd7552b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Quest3-SurgiLens/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quest3-SurgiLens/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Quest3-SurgiLens/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Quest3-SurgiLens/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Saves/Converters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Saves/Converters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TFColorUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TFColorUpdater.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/VolumeDataControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/VolumeDataControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VolumeRendering/Assets/Scripts/Importing/ImageFileImporter/SimpleITK/SimpleITKImageFileImporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VolumeRendering/Assets/Scripts/Importing/ImageFileImporter/SimpleITK/SimpleITKImageFileImporter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/VolumeRendering/Assets/Scripts/VolumeData/VolumeDataset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VolumeRendering/Assets/Scripts/VolumeData/VolumeDataset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +32,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;matthew/upgrade-to-unity-2022&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;matthew/native-quest-3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -118,6 +104,7 @@
       <workItem from="1749141511987" duration="17000" />
       <workItem from="1749142709527" duration="9791000" />
       <workItem from="1749155787203" duration="1765000" />
+      <workItem from="1749233705265" duration="6000" />
     </task>
     <servers />
   </component>

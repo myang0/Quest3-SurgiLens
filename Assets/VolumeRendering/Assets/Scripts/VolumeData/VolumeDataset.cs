@@ -9,7 +9,6 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Jobs;
 using UnityEngine.ParticleSystemJobs;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 
 namespace UnityVolumeRendering
