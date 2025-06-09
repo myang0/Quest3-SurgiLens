@@ -6,7 +6,6 @@ public class PlatformSpecific : MonoBehaviour
 
     [SerializeField] GameObject _remotingObject;
     [SerializeField] GameObject _volumeObjectPrefab;
-    [SerializeField] GameObject _qrCodeManager;
     [SerializeField] Material _skyboxMaterial;
     [SerializeField] GameObject _hololensHandMenu;
     [SerializeField] GameObject _vrControllerMenu;
@@ -35,13 +34,11 @@ public class PlatformSpecific : MonoBehaviour
         {
             _hololensHandMenu.SetActive(true);
             _remotingObject.SetActive(true);
-            _qrCodeManager.SetActive(true);
         }
         else if(CurrentPlatform == TargetPlatform.PCVR)
         {
             _vrNecessary.SetActive(true);
             _vrControllerMenu.SetActive(true);
-            _vrControllerMenu.GetComponent<HandMenu>().EnableQRButton(false);
             _skyboxChanger.ChangeSkybox(SkyboxChanger.SkyboxType.Classic);
         }
     }

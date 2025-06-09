@@ -536,12 +536,7 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
             ProcessingType = DatasetProcessingType.Normal;
         }
     }
-    public void SetQRRotation()
-    {
-        Vector3 rot = _volumeRenderedObject.gameObject.transform.localRotation.eulerAngles;
-        rot.z = 244.906f;
-        _volumeRenderedObject.gameObject.transform.localRotation = Quaternion.Euler(rot);
-    }
+    
     public void ResetAllTransforms()
     {
         ResetMainObjectTransform();

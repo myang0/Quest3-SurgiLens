@@ -12,13 +12,8 @@ public class DatasetButton : MonoBehaviour
     [SerializeField] ButtonConfigHelper _configHelper;
     [SerializeField] Texture _defaultTexture;
     [SerializeField] GameObject _enablerObject;
-    [SerializeField] TMP_Text _qrButtonText;
-    [SerializeField] MeshRenderer _qrButtonMesh;
-
-    
 
     [field: SerializeField] public Interactable LoadButton { get; set; }
-    [field: SerializeField] public Interactable QrButton { get; set; }
     [field: SerializeField] public TMP_Text DatasetName { get; set; }
     public LoadButtonState ButtonState { private set; get; }
     public VolumeDataControl VolumeControlObject { get; set; }
@@ -69,10 +64,7 @@ public class DatasetButton : MonoBehaviour
             manip.OnManipulationStarted.AddListener((data)=> DatasetGrabbed?.Invoke(this));
 
             _enablerObject.SetActive(true);
-
-            if (PlatformSpecific.Instance.CurrentPlatform == PlatformSpecific.TargetPlatform.Hololens2)
-                QrButton.gameObject.SetActive(true);
-
+            
             VolumeControlObject.LoadDatasetAsync(DatasetPath,ThumbnailTexture,DatasetName.text, MainCamera);        
         }
     }
@@ -100,31 +92,15 @@ public class DatasetButton : MonoBehaviour
             }
         }
     }
-    public void TryUpdateQRVolume()
-    {
-        if(HandMenu.Instance.ActiveQRDataset==this)
-        {
-            QRDataSpawner qrPlaced = FindObjectOfType<QRDataSpawner>();
-            if (qrPlaced != null)
-            {
-                SetButtonState(LoadButtonState.Active);
-                qrPlaced.ChangeVolumeData(VolumeControlObject);
-            }
-        }
-    }
+    
     public void ResetClicked()
     {
         if (VolumeControlObject != null)
             VolumeControlObject.ResetAllTransforms();      
     }
-    public void SetQrActiveState(bool value)
-    {
-        _qrButtonText.color=value ? Color.green : Color.white;
-        _qrButtonMesh.sharedMaterial.color = value ? Color.green : Color.white;
-    }
+    
     public void SetDatasetActive(bool value)
     {
         VolumeControlObject.gameObject.SetActive(value);
     }
-    
 }

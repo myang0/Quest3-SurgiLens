@@ -666,84 +666,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 901354079316611768, guid: 983e56c2203f308479b07b9ae0492b3a, type: 3}
   m_PrefabInstance: {fileID: 273734674}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &876340971
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329132, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329133, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_Name
-      value: QRCodesManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079062873306329133, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4908586973252628864, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: AutoStartQRTracking
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5731539863259288648, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-      propertyPath: qrCodePrefab
-      value: 
-      objectReference: {fileID: 1200717071578424, guid: c43eb2e8273c74c49931d278661aa4f0, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
---- !u!1 &876340972 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2079062873306329133, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-  m_PrefabInstance: {fileID: 876340971}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +907,7 @@ PrefabInstance:
     - target: {fileID: 3937077915513568239, guid: 3e479eb4858083a4ca11df2eea4d684d, type: 3}
       propertyPath: _qrCodeManager
       value: 
-      objectReference: {fileID: 1858610368}
+      objectReference: {fileID: 0}
     - target: {fileID: 3937077915513568239, guid: 3e479eb4858083a4ca11df2eea4d684d, type: 3}
       propertyPath: remotingListenConfiguration.EnableAudio
       value: 1
@@ -1164,7 +1086,6 @@ MonoBehaviour:
   <CurrentPlatform>k__BackingField: 1
   _remotingObject: {fileID: 1169797922}
   _volumeObjectPrefab: {fileID: 4186097702043771639, guid: 02e1fe8d459124a42b8ada10457a2be3, type: 3}
-  _qrCodeManager: {fileID: 876340972}
   _skyboxMaterial: {fileID: 2100000, guid: f0fb6c1dc312f3143bc48757761dc64f, type: 2}
   _hololensHandMenu: {fileID: 1954737527}
   _vrControllerMenu: {fileID: 273734675}
@@ -1545,17 +1466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1858610368 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4908586973252628864, guid: 88af6ac4da385574e9131fda5fb793cc, type: 3}
-  m_PrefabInstance: {fileID: 876340971}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876340972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab2f5e2f7e55e6c4db3da309ff799c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1906768207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1809,7 +1719,6 @@ SceneRoots:
   - {fileID: 1319592963}
   - {fileID: 1169797921}
   - {fileID: 472283975}
-  - {fileID: 876340971}
   - {fileID: 1313675962}
   - {fileID: 1906768207}
   - {fileID: 273734674}

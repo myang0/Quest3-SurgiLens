@@ -14,7 +14,6 @@ public class HandMenu : MonoBehaviour
     [SerializeField] Animator _additionalSettingAnimator;
     [SerializeField] InteractableToggleCollection _crossSectionModes;
     [SerializeField] PinchSlider _raymarchSlider;
-    [SerializeField] GameObject _qrUpdateButton;
     [SerializeField] TMP_Text _dayUpdate;
     [SerializeField] GameObject _datasetButtonPrefab;
     [SerializeField] GridObjectCollection _gridObjectCollection;
@@ -27,10 +26,8 @@ public class HandMenu : MonoBehaviour
     bool _useCubicInterpolation = false;
     bool _useLighting = false;
     bool _additionalSettingShown = false;
-    bool _qrUpdatesEnabled = true;
 
     public List<DatasetButton> AllDatasetButtons { get; set; } = new List<DatasetButton>();
-    public DatasetButton ActiveQRDataset { get; set; }
     public static HandMenu Instance { get; private set; }              //Singleton
 
     IEnumerator Start()
@@ -54,15 +51,13 @@ public class HandMenu : MonoBehaviour
             currentScroll.DatasetPath = _datasetDirectories[i];
             currentScroll.ButtonIndex = i;
             currentScroll.MainCamera = _mainCamera;
-
-            currentScroll.QrButton.OnClick.AddListener(()=> OnAnyQrActivated(currentScroll.ButtonIndex));
+            
             currentScroll.LoadButton.OnClick.AddListener(()=> OnDatasetLoadButtonClicked(currentScroll.ButtonIndex)); 
 
             AllDatasetButtons.Add(currentScroll);
         }
 
         LightingUpdated();
-        UpdateQrStatus();
 
         VolumeDataControl.DatasetSpawned += OnNewDatasetSpawned;
 
@@ -124,37 +119,7 @@ public class HandMenu : MonoBehaviour
         UnityVolumeRendering.CrossSectionType type = _crossSectionModes.CurrentIndex == 0 ? UnityVolumeRendering.CrossSectionType.Plane : _crossSectionModes.CurrentIndex == 1 ? UnityVolumeRendering.CrossSectionType.SphereInclusive : UnityVolumeRendering.CrossSectionType.SphereExclusive;
         AllDatasetButtons.ForEach(_x => { if ((_x.VolumeControlObject != null) && _x.VolumeControlObject.HasBeenLoaded) _x.VolumeControlObject.SetCrossSectionType(type); });
     }
-    public void ChangeQRUpdates()
-    {
-        _qrUpdatesEnabled= !_qrUpdatesEnabled;
-        UpdateQrStatus();
-    }
-    public void UpdateQrStatus()
-    {
-        foreach (IQRUpdate i in FindObjectsOfType<MonoBehaviour>().OfType<IQRUpdate>())
-            i.EnableQRUpdate(_qrUpdatesEnabled);
-    }
-    public void EnableQRButton(bool value)
-    {
-        _qrUpdateButton.SetActive(value);
-    }
-
-    public void OnAnyQrActivated(int index)
-    {
-        for (int i = 0; i < AllDatasetButtons.Count; i++)
-        {
-            if (i == index)
-            {
-                ActiveQRDataset = AllDatasetButtons[i];
-                AllDatasetButtons[i].SetQrActiveState(true);
-                AllDatasetButtons[i].TryUpdateQRVolume();
-            }
-            else
-            {
-                AllDatasetButtons[i].SetQrActiveState(false);
-            }
-        }
-    }
+    
     private void OnDatasetLoadButtonClicked(int index)
     {
         for (int i = 0; i < AllDatasetButtons.Count; i++)

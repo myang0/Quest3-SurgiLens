@@ -1,14 +1,11 @@
 using Microsoft.MixedReality.OpenXR.BasicSample;
 using Microsoft.MixedReality.Toolkit;
-using QRTracking;
 using System.Linq;
 using UnityEngine;
 
 public class Console : MonoBehaviour
 {
-    [SerializeField] QRCodesManager _qrCodeManager;
     [SerializeField] GameObject _prefab;
-    [SerializeField] QRCodesVisualizer _qrVisualizer;
     [SerializeField] MixedRealityToolkitConfigurationProfile _wireFrame;
     [SerializeField] MixedRealityToolkitConfigurationProfile _default;
     [SerializeField] MixedRealityToolkitConfigurationProfile _diagnostics;
@@ -35,10 +32,6 @@ public class Console : MonoBehaviour
         {
             _errorNotifier.AddErrorMessageToUser("Hand menu must be initialized before spawning anything");
         }
-    }
-    public void SetQr(int index)
-    {
-        HandMenu.Instance.OnAnyQrActivated(index);
     }
     public void Quit()
     {
