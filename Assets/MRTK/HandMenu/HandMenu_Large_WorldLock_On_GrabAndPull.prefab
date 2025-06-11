@@ -1854,7 +1854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &91223481636753479
 Transform:
   m_ObjectHideFlags: 0
@@ -3746,7 +3746,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7672434175979428501
 Transform:
   m_ObjectHideFlags: 0
@@ -8444,7 +8444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6742094791252829599, guid: 64790b91b91094d49942373c4e83c237, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742094791873819757, guid: 64790b91b91094d49942373c4e83c237, type: 3}
       propertyPath: m_IsActive
@@ -8646,6 +8646,18 @@ PrefabInstance:
       value: HandMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
+      propertyPath: m_textAlignment
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
       propertyPath: m_textInfo.lineCount
       value: 0
       objectReference: {fileID: 0}
@@ -8656,6 +8668,10 @@ PrefabInstance:
     - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
       propertyPath: m_textInfo.wordCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8579510598646537953, guid: f1dfa3ff1f171964fa0717ff4d0131cb, type: 3}
       propertyPath: m_textInfo.spaceCount
@@ -10228,11 +10244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7993839106200101939, guid: 608059a201c6fd8409446da5b4324fc7, type: 3}
       propertyPath: sliderEndDistance
-      value: 0.03
+      value: 0.029999988
       objectReference: {fileID: 0}
     - target: {fileID: 7993839106200101939, guid: 608059a201c6fd8409446da5b4324fc7, type: 3}
       propertyPath: sliderStartDistance
-      value: -0.03
+      value: -0.030000001
       objectReference: {fileID: 0}
     - target: {fileID: 7993839106200101939, guid: 608059a201c6fd8409446da5b4324fc7, type: 3}
       propertyPath: OnValueUpdated.m_PersistentCalls.m_Calls.Array.size

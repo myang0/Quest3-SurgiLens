@@ -1,5 +1,3 @@
-using Microsoft.MixedReality.Toolkit.Input;
-using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,27 +10,31 @@ using RenderMode = UnityVolumeRendering.RenderMode;
 
 using TransferFunction = UnityVolumeRendering.TransferFunction;
 
-public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
+public class VolumeDataControl : MonoBehaviour
 {
-    [SerializeField] InteractableToggleCollection _renderModes;
-    [SerializeField] TMP_Text _raymarchStepsLabel;
+    // [SerializeField] InteractableToggleCollection _renderModes;
+    
     [SerializeField] CrossSectionSphere _cutoutSphere;
     [SerializeField] CrossSectionManager _cutoutManager;
     [SerializeField] GameObject _cutoutPlane;
     [SerializeField] SlicingPlane _slicingPlaneXNormalAxisObject;
     [SerializeField] SlicingPlane _slicingPlaneYNormalAxisObject;
     [SerializeField] SlicingPlane _slicingPlaneZNormalAxisObject;
-    [SerializeField] GameObject _controlHandle;
-    [SerializeField] GameObject _segmentationSliderPrefab;
-    [SerializeField] GameObject _segmentationParentContainer;
-    [SerializeField] GameObject _segmentationParent;
-    [SerializeField] TFColorUpdater _tfColorUpdater;
+    
+    // [SerializeField] GameObject _controlHandle;
+    // [SerializeField] GameObject _segmentationSliderPrefab;
+    // [SerializeField] GameObject _segmentationParentContainer;
+    // [SerializeField] GameObject _segmentationParent;
+    // [SerializeField] TFColorUpdater _tfColorUpdater;
+    
     [SerializeField] MeshRenderer _volumeDatasetIcon;
     [SerializeField] TMP_Text _volumeDatasetDescription;
-    [SerializeField] GameObject _densitySliderPrefab;
-    [SerializeField] GameObject _densitySlidersContainer;
-    [SerializeField] GameObject _sliderControlButtons;
-    [SerializeField] GameObject _removeSliderButton;
+    
+    // [SerializeField] GameObject _densitySliderPrefab;
+    // [SerializeField] GameObject _densitySlidersContainer;
+    // [SerializeField] GameObject _sliderControlButtons;
+    // [SerializeField] GameObject _removeSliderButton;
+    
     [SerializeField] DatasetSaveSystem _saveSystem;
     [SerializeField] OrbProgressView _orbProgressView;
     [SerializeField] VolumeRenderedObject _volumeRenderedObject;
@@ -77,8 +79,8 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     private void Start()
     {
         SaveInitialTransforms();
-        _tfColorUpdater.TfColorUpdated += SetTransferFunction;
-        _tfColorUpdater.TfColorReset += OnTFReset;
+        // _tfColorUpdater.TfColorUpdated += SetTransferFunction;
+        // _tfColorUpdater.TfColorReset += OnTFReset;
         SliceRendererWindow.IntervalSliderValueChanged += UpdateSlicePlaneWindow;
     }
     public async void LoadDatasetAsync(string datasetFolderName,Texture volumeIcon,string description,Camera mainCamera)        //Async addition so all the loading doesnt freeze the app
@@ -110,8 +112,8 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
             TransferFunction = TransferFunctionDatabase.LoadTransferFunctionFromResources("defaultTF");      //TF in resources must be in .txt format, the .tf that is default for transfer function cannot be loaded from resources
             SetTransferFunction(TransferFunction);
 
-            _tfColorUpdater.InitUpdater(TransferFunction,Dataset.MinDataValue,Dataset.MaxDataValue);
-            _saveSystem.TryLoadTFData(_tfColorUpdater);
+            // _tfColorUpdater.InitUpdater(TransferFunction,Dataset.MinDataValue,Dataset.MaxDataValue);
+            // _saveSystem.TryLoadTFData(_tfColorUpdater);
 
             if (!_saveSystem.TryLoadSaveDensitySliders(this))
                 AddValueDensitySlider(0, 1,saveAfter:false);                                     //Add default density slider if there are no save data
@@ -121,13 +123,13 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
                 SliceRendererWindow.SetInitValues(0, 1,Dataset.MinDataValue,Dataset.MaxDataValue);
             
 
-            _densitySlidersContainer.SetActive(true);
+            // _densitySlidersContainer.SetActive(true);
             _cutoutManager.UpdateShaderData();
 
             if (await TryLoadSegmentationToVolumeAsync(datasetFolderName, Dataset,progressHandler))
             {
                 await InitSegmentationAsync(progressHandler);
-                _segmentationParent.SetActive(true);
+                // _segmentationParent.SetActive(true);
             }
             else
             {
@@ -300,41 +302,41 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     }
     public void AddValueDensitySlider(float minVal,float maxVal,bool saveAfter)
     {
-        GameObject newSlider = Instantiate(_densitySliderPrefab, _densitySlidersContainer.transform);
-
-        newSlider.transform.localPosition = new Vector3(0.09f - (DensityIntervalSliders.Count * 0.09f), 0.011f, 0.3f);
-        newSlider.transform.localRotation = Quaternion.Euler(new Vector3(90, -90, 0));
-        SliderIntervalUpdater sliderUpdater = newSlider.GetComponent<SliderIntervalUpdater>();
-        sliderUpdater.IntervalSliderValueChanged += UpdateIsoRanges;
-        sliderUpdater.SetInitValues(minVal, maxVal, Dataset.MinDataValue, Dataset.MaxDataValue);
-        _sliderControlButtons.transform.localPosition = new Vector3(-0.03f - (DensityIntervalSliders.Count * 0.09f), 0, DensityIntervalSliders.Count > 0 ? 0.3f : 0.22f);
-
-        DensityIntervalSliders.Add(sliderUpdater);
-
-        if (DensityIntervalSliders.Count > 1)
-            _removeSliderButton.SetActive(true);
-
-        UpdateIsoRanges();
-
-        if(saveAfter)
-            _saveSystem.SaveDataAsync(this);
+        // GameObject newSlider = Instantiate(_densitySliderPrefab, _densitySlidersContainer.transform);
+        //
+        // newSlider.transform.localPosition = new Vector3(0.09f - (DensityIntervalSliders.Count * 0.09f), 0.011f, 0.3f);
+        // newSlider.transform.localRotation = Quaternion.Euler(new Vector3(90, -90, 0));
+        // SliderIntervalUpdater sliderUpdater = newSlider.GetComponent<SliderIntervalUpdater>();
+        // sliderUpdater.IntervalSliderValueChanged += UpdateIsoRanges;
+        // sliderUpdater.SetInitValues(minVal, maxVal, Dataset.MinDataValue, Dataset.MaxDataValue);
+        // _sliderControlButtons.transform.localPosition = new Vector3(-0.03f - (DensityIntervalSliders.Count * 0.09f), 0, DensityIntervalSliders.Count > 0 ? 0.3f : 0.22f);
+        //
+        // DensityIntervalSliders.Add(sliderUpdater);
+        //
+        // if (DensityIntervalSliders.Count > 1)
+        //     _removeSliderButton.SetActive(true);
+        //
+        // UpdateIsoRanges();
+        //
+        // if(saveAfter)
+        //     _saveSystem.SaveDataAsync(this);
     }
     public void RemoveDensitySlider()
     {
-        SliderIntervalUpdater sliderUpdater = DensityIntervalSliders.Last();
-        sliderUpdater.IntervalSliderValueChanged -= UpdateIsoRanges;
-
-        _sliderControlButtons.transform.localPosition = new Vector3(-0.03f - ((DensityIntervalSliders.Count - 2) * 0.09f), 0, DensityIntervalSliders.Count - 2>=1? 0.3f:0.22f);
-
-        DensityIntervalSliders.Remove(sliderUpdater);
-        Destroy(sliderUpdater.gameObject);
-
-        if (DensityIntervalSliders.Count <= 1)
-            _removeSliderButton.SetActive(false);
-
-        UpdateIsoRanges();
-        DensityIntervalsChanged?.Invoke();
-        _saveSystem.SaveDataAsync(this);
+        // SliderIntervalUpdater sliderUpdater = DensityIntervalSliders.Last();
+        // sliderUpdater.IntervalSliderValueChanged -= UpdateIsoRanges;
+        //
+        // _sliderControlButtons.transform.localPosition = new Vector3(-0.03f - ((DensityIntervalSliders.Count - 2) * 0.09f), 0, DensityIntervalSliders.Count - 2>=1? 0.3f:0.22f);
+        //
+        // DensityIntervalSliders.Remove(sliderUpdater);
+        // Destroy(sliderUpdater.gameObject);
+        //
+        // if (DensityIntervalSliders.Count <= 1)
+        //     _removeSliderButton.SetActive(false);
+        //
+        // UpdateIsoRanges();
+        // DensityIntervalsChanged?.Invoke();
+        // _saveSystem.SaveDataAsync(this);
     }
     public void UpdateIsoRanges()
     {
@@ -360,28 +362,28 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
             _volumeRenderedObject.SetRenderMode(renderMode);
             UpdateIsoRanges();
 
-            if(renderMode==RenderMode.DirectVolumeRendering)
-            {
-                if(Segments.Count>0)
-                    _segmentationParent.SetActive(true);
-            }
-            else
-                _segmentationParent.SetActive(false);
-
-            if (renderMode == RenderMode.MaximumIntensityProjectipon)
-                _tfColorUpdater.ShowTfUpdater(false);
-            else
-                _tfColorUpdater.ShowTfUpdater(true);
+            // if(renderMode==RenderMode.DirectVolumeRendering)
+            // {
+            //     if(Segments.Count>0)
+            //         _segmentationParent.SetActive(true);
+            // }
+            // else
+            //     _segmentationParent.SetActive(false);
+            //
+            // if (renderMode == RenderMode.MaximumIntensityProjectipon)
+            //     _tfColorUpdater.ShowTfUpdater(false);
+            // else
+            //     _tfColorUpdater.ShowTfUpdater(true);
         }
     }
     public void SwitchSegmentationPanel()
     {
-        _segmentationPanelVisible=!_segmentationPanelVisible;
-
-        _segmentationParentContainer.SetActive(_segmentationPanelVisible);
-
-        _tfColorUpdater.ShowTfUpdater(!_segmentationPanelVisible);
-        TurnLabelingKeyword(_segmentationPanelVisible);
+        // _segmentationPanelVisible=!_segmentationPanelVisible;
+        //
+        // _segmentationParentContainer.SetActive(_segmentationPanelVisible);
+        //
+        // _tfColorUpdater.ShowTfUpdater(!_segmentationPanelVisible);
+        // TurnLabelingKeyword(_segmentationPanelVisible);
     }
     public void UpdateCubicInterpolation(bool value)
     {
@@ -418,18 +420,18 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
                 if (key == 0) continue;
 
                 Color col = uniqueColors[iter];
-                GameObject tmp = Instantiate(_segmentationSliderPrefab, _segmentationParentContainer.transform);
-                tmp.transform.localPosition = new Vector3(0, 0.24f - (0.06f * iter), 0.33f);
-                tmp.transform.localRotation = Quaternion.Euler(new Vector3(0, -90, 0));
-                Segment segment = tmp.GetComponent<Segment>();
-                segment.ColorUpdated += UpdateShaderLabelArray;
-                segment.InitColor(col);
-
-                if (Dataset.LabelNames[i].ContainsKey(key))
-                    segment.ChangeSegmentName(Dataset.LabelNames[i][key]);
-
-                Segments.Add(segment);
-                iter++;
+                // GameObject tmp = Instantiate(_segmentationSliderPrefab, _segmentationParentContainer.transform);
+                // tmp.transform.localPosition = new Vector3(0, 0.24f - (0.06f * iter), 0.33f);
+                // tmp.transform.localRotation = Quaternion.Euler(new Vector3(0, -90, 0));
+                // Segment segment = tmp.GetComponent<Segment>();
+                // segment.ColorUpdated += UpdateShaderLabelArray;
+                // segment.InitColor(col);
+                //
+                // if (Dataset.LabelNames[i].ContainsKey(key))
+                //     segment.ChangeSegmentName(Dataset.LabelNames[i][key]);
+                //
+                // Segments.Add(segment);
+                // iter++;
             }
         }
         
@@ -486,7 +488,7 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     }
     public void UpdateSlicePlane(bool value)
     {
-        _tfColorUpdater.gameObject.transform.localPosition = value ? new Vector3(0.275f, 0.02f, 0.3f) : new Vector3(0.1705f, 0.02f, 0.3f);  //Move the tf color slider if enabled
+        // _tfColorUpdater.gameObject.transform.localPosition = value ? new Vector3(0.275f, 0.02f, 0.3f) : new Vector3(0.1705f, 0.02f, 0.3f);  //Move the tf color slider if enabled
 
         SliceRendererWindow.gameObject.SetActive(value);
 
@@ -564,7 +566,7 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     }
     public void ResetHandleTransform()
     {
-        Converters.UpdateTransform(_controlHandle.transform, _grabHandleTransformSave, false);
+        // Converters.UpdateTransform(_controlHandle.transform, _grabHandleTransformSave, false);
     }
     public void ResetSlicesTransform()
     {
@@ -576,7 +578,7 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     {
         _cutoutPlaneTransformSave = Converters.ConvertTransform(_cutoutPlane.transform);
         _cutoutSphereTransformSave = Converters.ConvertTransform(_cutoutSphere.transform);
-        _grabHandleTransformSave= Converters.ConvertTransform(_controlHandle.transform);
+        // _grabHandleTransformSave= Converters.ConvertTransform(_controlHandle.transform);
 
         _slicingPlaneXTransformSave=Converters.ConvertTransform(_slicingPlaneXNormalAxisObject.transform);
         _slicingPlaneYTransformSave=Converters.ConvertTransform(_slicingPlaneYNormalAxisObject.transform);
@@ -599,14 +601,14 @@ public class VolumeDataControl : MonoBehaviour, IMixedRealityInputHandler
     {
         _saveSystem.SaveDataAsync(this);        //MRTK buttons do not trigger OnInputUp event from IMixedRealityInputHandler so we need to save it manually
     }
-    public void OnInputUp(InputEventData eventData)
-    {
-        _saveSystem.SaveDataAsync(this);
-        _cutoutManager.InputDetected(false);
-    }
-
-    public void OnInputDown(InputEventData eventData)
-    {
-        _cutoutManager.InputDetected(true);
-    }
+    // public void OnInputUp(InputEventData eventData)
+    // {
+    //     _saveSystem.SaveDataAsync(this);
+    //     _cutoutManager.InputDetected(false);
+    // }
+    //
+    // public void OnInputDown(InputEventData eventData)
+    // {
+    //     _cutoutManager.InputDetected(true);
+    // }
 }

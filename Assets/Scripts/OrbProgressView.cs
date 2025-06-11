@@ -1,4 +1,3 @@
-using Microsoft.MixedReality.Toolkit.UI;
 using System.Collections.Concurrent;
 using TMPro;
 using UnityEngine;
@@ -6,7 +5,6 @@ using UnityVolumeRendering;
 
 public class OrbProgressView : MonoBehaviour, IProgressView
 {
-    [SerializeField] ProgressIndicatorOrbsRotator _orbObject;
     [SerializeField] TMP_Text _textIndicator;
     [SerializeField] TMP_Text _textPartNumber;
 
@@ -24,10 +22,6 @@ public class OrbProgressView : MonoBehaviour, IProgressView
     {
         _mainCamera = FindObjectOfType<Camera>();
     }
-    public void FinishProgress(ProgressStatus status = ProgressStatus.Succeeded)
-    {
-        _orbObject.CloseAsync();
-    }
 
     public void StartProgress(string description, int numberOfParts)
     {
@@ -39,11 +33,14 @@ public class OrbProgressView : MonoBehaviour, IProgressView
     {
         EnqeueReport(progress, description, partNumber);
     }
+    
+    public void FinishProgress(ProgressStatus status = ProgressStatus.Succeeded)
+    {
+        
+    }
 
     private async void OpenOrbView(string description)
     {
-        await _orbObject.OpenAsync();
-
         EnqeueReport(0, description, 1);
     }
     private void EnqeueReport(float progress, string description, int partNumber)
@@ -59,7 +56,6 @@ public class OrbProgressView : MonoBehaviour, IProgressView
     {
         if (_progressQueue.TryDequeue(out ProgressData progressData))
         {
-            _orbObject.Message = progressData.description;
             _textIndicator.text = progressData.progress == 0 ? "" : $"{(int)(progressData.progress * 100)} %";
             _textPartNumber.text = $"{progressData.partNumber}/{_numberOfParts}";
         }

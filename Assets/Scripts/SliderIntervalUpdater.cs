@@ -1,4 +1,3 @@
-using Microsoft.MixedReality.Toolkit.UI;
 using System;
 using System.Collections;
 using TMPro;
@@ -6,9 +5,9 @@ using UnityEngine;
 
 public class SliderIntervalUpdater : MonoBehaviour
 {
-    [SerializeField] PinchSlider _firstSlider;
-    [SerializeField] PinchSlider _secondSlider;
-    [SerializeField] PinchSlider _middleSlider;
+    // [SerializeField] PinchSlider _firstSlider;
+    // [SerializeField] PinchSlider _secondSlider;
+    // [SerializeField] PinchSlider _middleSlider;
     [SerializeField] GameObject _middleSliderCollider;
     [SerializeField] GameObject _firstSliderThumb;
     [SerializeField] GameObject _secondSliderThumb;
@@ -22,68 +21,75 @@ public class SliderIntervalUpdater : MonoBehaviour
 
     public Action IntervalSliderValueChanged { get; set; }
 
-    public void MiddleSliderUpdated(SliderEventData data)
+    // public void MiddleSliderUpdated(SliderEventData data)
+    // {
+    //     
+    // }
+
+    public void MiddleSliderUpdated()
     {      
-        float sliderRange=_firstSlider.SliderValue-_secondSlider.SliderValue;
-
-        bool isSecondSliderGreater = sliderRange < 0;
-
-        float shift = sliderRange * 0.5f;
-        float lower = data.NewValue - shift;
-        float upper= data.NewValue + shift;
-        (float firstSliderNewValue,float secondSliderNewValue) = isSecondSliderGreater ? (lower, upper):(upper, lower);
-
-        if((firstSliderNewValue <= 1)&& (secondSliderNewValue <= 1))
-        {
-            if((firstSliderNewValue >= 0)&& (secondSliderNewValue >= 0))
-            {
-                _firstSlider.SliderValue = firstSliderNewValue;
-                _secondSlider.SliderValue = secondSliderNewValue;
-            }
-            else                                //In case some slider has reached value below 0, move both sliders by same range to the start
-            {
-                float toFill = isSecondSliderGreater? _firstSlider.SliderValue: _secondSlider.SliderValue; 
-              
-                _firstSlider.SliderValue -= toFill;
-                _secondSlider.SliderValue -= toFill;
-            }
-        }
-        else                                    //In case some slider has reached value above 1, move both sliders by same range to the end
-        {
-            float toFill = 1 - (isSecondSliderGreater ? _secondSlider.SliderValue : _firstSlider.SliderValue);
-
-            _firstSlider.SliderValue += toFill;
-            _secondSlider.SliderValue += toFill;
-        } 
+        // float sliderRange=_firstSlider.SliderValue-_secondSlider.SliderValue;
+        //
+        // bool isSecondSliderGreater = sliderRange < 0;
+        //
+        // float shift = sliderRange * 0.5f;
+        // float lower = data.NewValue - shift;
+        // float upper= data.NewValue + shift;
+        // (float firstSliderNewValue,float secondSliderNewValue) = isSecondSliderGreater ? (lower, upper):(upper, lower);
+        //
+        // if((firstSliderNewValue <= 1)&& (secondSliderNewValue <= 1))
+        // {
+        //     if((firstSliderNewValue >= 0)&& (secondSliderNewValue >= 0))
+        //     {
+        //         _firstSlider.SliderValue = firstSliderNewValue;
+        //         _secondSlider.SliderValue = secondSliderNewValue;
+        //     }
+        //     else                                //In case some slider has reached value below 0, move both sliders by same range to the start
+        //     {
+        //         float toFill = isSecondSliderGreater? _firstSlider.SliderValue: _secondSlider.SliderValue; 
+        //       
+        //         _firstSlider.SliderValue -= toFill;
+        //         _secondSlider.SliderValue -= toFill;
+        //     }
+        // }
+        // else                                    //In case some slider has reached value above 1, move both sliders by same range to the end
+        // {
+        //     float toFill = 1 - (isSecondSliderGreater ? _secondSlider.SliderValue : _firstSlider.SliderValue);
+        //
+        //     _firstSlider.SliderValue += toFill;
+        //     _secondSlider.SliderValue += toFill;
+        // } 
     }
     public void SetInitValues(float min,float max,float minHuValue,float maxHuValue)
     {
-        _firstSlider.SliderValue = min;
-        _secondSlider.SliderValue = max;
-        _middleSlider.SliderValue = (max + min) * 0.5f;
-
-        _minHounsfieldValue = minHuValue;
-        _maxHounsfieldValue = maxHuValue;
+        // _firstSlider.SliderValue = min;
+        // _secondSlider.SliderValue = max;
+        // _middleSlider.SliderValue = (max + min) * 0.5f;
+        //
+        // _minHounsfieldValue = minHuValue;
+        // _maxHounsfieldValue = maxHuValue;
     }
     public void OnChangeSliderValue()
     {
-        IntervalSliderValueChanged?.Invoke();
-
-        float middleSliderSize=Mathf.Abs(_firstSlider.SliderValue-_secondSlider.SliderValue);
-
-        Vector3 updatedScale = _middleSliderCollider.transform.localScale;
-        updatedScale.x = middleSliderSize;
-
-        _middleSliderCollider.transform.localScale = updatedScale;
-        _middleSliderCollider.transform.position = (_firstSliderThumb.transform.position + _secondSliderThumb.transform.position) * 0.5f;     
-
-        _sliderFirstHULabel.text= $"{Utils.GetHUFromFloat(_firstSlider.SliderValue, _minHounsfieldValue,_maxHounsfieldValue)}<br>HU";
-        _sliderSecondHULabel.text = $"{Utils.GetHUFromFloat(_secondSlider.SliderValue, _minHounsfieldValue, _maxHounsfieldValue)}<br>HU";
+        // IntervalSliderValueChanged?.Invoke();
+        //
+        // float middleSliderSize=Mathf.Abs(_firstSlider.SliderValue-_secondSlider.SliderValue);
+        //
+        // Vector3 updatedScale = _middleSliderCollider.transform.localScale;
+        // updatedScale.x = middleSliderSize;
+        //
+        // _middleSliderCollider.transform.localScale = updatedScale;
+        // _middleSliderCollider.transform.position = (_firstSliderThumb.transform.position + _secondSliderThumb.transform.position) * 0.5f;     
+        //
+        // _sliderFirstHULabel.text= $"{Utils.GetHUFromFloat(_firstSlider.SliderValue, _minHounsfieldValue,_maxHounsfieldValue)}<br>HU";
+        // _sliderSecondHULabel.text = $"{Utils.GetHUFromFloat(_secondSlider.SliderValue, _minHounsfieldValue, _maxHounsfieldValue)}<br>HU";
     }
     public void GetSliderValues(out float value1,out float value2)
     {
-        value1= _firstSlider.SliderValue<_secondSlider.SliderValue?_firstSlider.SliderValue:_secondSlider.SliderValue;
-        value2= _firstSlider.SliderValue> _secondSlider.SliderValue ? _firstSlider.SliderValue : _secondSlider.SliderValue;
+        value1 = 1;
+        value2 = 1;
+        // value1= _firstSlider.SliderValue<_secondSlider.SliderValue?_firstSlider.SliderValue:_secondSlider.SliderValue;
+        // value2= _firstSlider.SliderValue> _secondSlider.SliderValue ? _firstSlider.SliderValue : _secondSlider.SliderValue;
     }
     public void SetHoverState()
     {
