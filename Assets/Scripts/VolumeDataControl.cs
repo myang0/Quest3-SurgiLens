@@ -157,7 +157,7 @@ public class VolumeDataControl : MonoBehaviour
     {
         return (await DataProcessing(datasetFolderName,"Labels",progressHandler,volumeDataset)!=null);
     }
-    private async Task<VolumeDataset> DataProcessing(string datasetFolderName,string folderName, ProgressHandler progressHandler, VolumeDataset volumeDataset=null)
+    private async Task<VolumeDataset> DataProcessing(string datasetFolderName, string folderName, ProgressHandler progressHandler, VolumeDataset volumeDataset=null)
     {
         string datasetName = datasetFolderName.Split('/').Last();
 
@@ -171,6 +171,7 @@ public class VolumeDataControl : MonoBehaviour
         string FolderName = $"{datasetFolderName}/{folderName}/";
         if (!Directory.Exists(FolderName))
         {
+            Debug.Log($"Directory {FolderName} does not exist.");
             filePath = "";
             isDicomImageSequence = false;
             return false;
@@ -180,14 +181,18 @@ public class VolumeDataControl : MonoBehaviour
 
         if (errorFlag == 1)
         {
+            Debug.Log($"No data detected in dataset named: {datasetFolderName.Split('/').Last()} in folder {folderName}.");
             ErrorNotifier.Instance.AddErrorMessageToUser($"No data detected in dataset named: {datasetFolderName.Split('/').Last()} in folder {folderName}");
             return false;
         }
-        else if (errorFlag == 2)
+        
+        if (errorFlag == 2)
         {
+            Debug.Log($"Unknown data detected in dataset named: {datasetFolderName.Split('/').Last()} in folder {folderName}");
             ErrorNotifier.Instance.AddErrorMessageToUser($"Unknown data detected in dataset named: {datasetFolderName.Split('/').Last()} in folder {folderName}");
             return false;
         }
+        
         return true;
     }
     private async Task<VolumeDataset> ImportDataInternal(bool isDicomImageSequence,string filePath,string datasetName,string folderName, ProgressHandler progressHandler, VolumeDataset volumeDataset=null)
